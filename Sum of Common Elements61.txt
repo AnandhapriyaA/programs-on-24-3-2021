@@ -1,0 +1,39 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter length1");
+		int len1 = scan.nextInt();
+		System.out.println("enter length2");
+		int len2 = scan.nextInt();
+		System.out.println("enter array1");
+		int[] array1 = new int[len1];
+		int[] array2 = new int[len2];
+		for (int i = 0; i < len1; i++)
+			array1[i] = scan.nextInt();
+		System.out.println("enter array2");
+		for (int i = 0; i < len2; i++)
+			array2[i] = scan.nextInt();
+		getSumOfIntersection(array1, array2);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int getSumOfIntersection(int[] array1, int[] array2) {
+		int sum = 0;
+		for (int i = 0; i < array1.length; i++) {
+			for (int j = 0; j < array2.length; j++) {
+				if (array1[i] == array2[j]) {
+					sum = sum + array1[i];
+				}
+			}
+		}
+		if (sum == 0)
+			System.out.println("no common elements");
+		else
+			System.out.println(sum);
+		return sum;
+	}
+}
